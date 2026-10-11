@@ -6,7 +6,7 @@ weekly units by size, next 4 weeks, per store, plus the style total for DC dispa
 ## Run locally
     pip install -r requirements.txt
     uvicorn app:app --reload
-Open http://localhost:8000
+https://zara-s-short-lifecycle-demand-y9l2.onrender.com/
 
 ## Endpoints
 - `/`                         simple page: pick a style, see DC dispatch and store detail
