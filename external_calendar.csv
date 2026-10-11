@@ -1,0 +1,77 @@
+date,country_code,holiday_type,holiday_name,school_holiday
+25-12-2022,GB,Public Holiday,Christmas,TRUE
+01-01-2023,GB,Public Holiday,New Year,FALSE
+07-04-2023,GB,Public Holiday,Good Friday,FALSE
+01-05-2023,GBR,Public Holiday,May Bank Holiday,TRUE
+28-08-2023,GBR,Public Holiday,Summer Bank Holiday,FALSE
+25-12-2023,GBR,Public Holiday,Christmas,TRUE
+01-01-2024,GBR,Public Holiday,New Year,TRUE
+29-03-2024,GB,Public Holiday,Good Friday,FALSE
+25-12-2022,DEU,Public Holiday,Weihnachten,FALSE
+01-01-2023,DEU,Public Holiday,Neujahr,FALSE
+07-04-2023,DEU,Public Holiday,Karfreitag,TRUE
+03-10-2023,DEU,Public Holiday,Tag der Deutschen Einheit,TRUE
+25-12-2023,DEU,Public Holiday,Weihnachten,FALSE
+01-01-2024,DEU,Public Holiday,Neujahr,TRUE
+25-12-2022,FRA,Public Holiday,Noel,TRUE
+01-01-2023,FR,Public Holiday,Jour de l'An,FALSE
+14-07-2023,FR,Public Holiday,Bastille Day,FALSE
+11-11-2023,FRA,Public Holiday,Armistice,TRUE
+25-12-2023,FRA,Public Holiday,Noel,FALSE
+01-01-2024,FRA,Public Holiday,Jour de l'An,FALSE
+25-12-2022,ES,Public Holiday,Navidad,FALSE
+06-01-2023,ESP,Public Holiday,Epifania,TRUE
+13-04-2023,ESP,Public Holiday,Jueves Santo,FALSE
+12-10-2023,ESP,Public Holiday,Dia de la Hispanidad,FALSE
+25-12-2023,ESP,Public Holiday,Navidad,TRUE
+06-01-2024,ESP,Public Holiday,Epifania,TRUE
+27-02-2023,FR,School Holiday,School Break,TRUE
+28-03-2023,DE,School Holiday,School Break,TRUE
+26-11-2023,GBR,School Holiday,School Break,TRUE
+11-07-2023,GBR,School Holiday,School Break,TRUE
+14-10-2023,ESP,School Holiday,School Break,TRUE
+11-10-2023,ESP,School Holiday,School Break,TRUE
+03-12-2023,DE,School Holiday,School Break,TRUE
+21-11-2023,ESP,School Holiday,School Break,TRUE
+14-09-2023,ESP,School Holiday,School Break,TRUE
+25-11-2023,ES,School Holiday,School Break,TRUE
+11-07-2022,FR,School Holiday,School Break,TRUE
+30-05-2023,ES,School Holiday,School Break,TRUE
+09-10-2022,ES,School Holiday,School Break,TRUE
+27-04-2023,ES,School Holiday,School Break,TRUE
+10-06-2023,DEU,School Holiday,School Break,TRUE
+29-08-2023,FRA,School Holiday,School Break,TRUE
+10-07-2023,ESP,School Holiday,School Break,TRUE
+09-05-2023,FR,School Holiday,School Break,TRUE
+07-06-2023,ESP,School Holiday,School Break,TRUE
+11-01-2023,GBR,School Holiday,School Break,TRUE
+08-09-2023,DEU,School Holiday,School Break,TRUE
+12-11-2022,DE,School Holiday,School Break,TRUE
+27-07-2022,DEU,School Holiday,School Break,TRUE
+02-04-2023,DEU,School Holiday,School Break,TRUE
+09-01-2023,ESP,School Holiday,School Break,TRUE
+19-08-2023,GB,School Holiday,School Break,TRUE
+23-09-2023,ES,School Holiday,School Break,TRUE
+03-07-2022,DEU,School Holiday,School Break,TRUE
+20-11-2022,GBR,School Holiday,School Break,TRUE
+12-11-2022,DE,School Holiday,School Break,TRUE
+04-10-2022,DEU,School Holiday,School Break,TRUE
+28-08-2023,FRA,School Holiday,School Break,TRUE
+18-01-2023,GB,School Holiday,School Break,TRUE
+28-01-2023,GB,School Holiday,School Break,TRUE
+26-03-2023,DEU,School Holiday,School Break,TRUE
+31-05-2023,DE,School Holiday,School Break,TRUE
+12-09-2023,FR,School Holiday,School Break,TRUE
+16-04-2023,FR,School Holiday,School Break,TRUE
+06-09-2023,GBR,School Holiday,School Break,TRUE
+26-09-2022,ES,School Holiday,School Break,TRUE
+12-11-2023,FRA,School Holiday,School Break,TRUE
+03-04-2023,FR,School Holiday,School Break,TRUE
+19-02-2023,DEU,School Holiday,School Break,TRUE
+06-12-2023,GB,School Holiday,School Break,TRUE
+17-12-2022,FRA,School Holiday,School Break,TRUE
+22-11-2022,ESP,School Holiday,School Break,TRUE
+11-10-2023,FRA,School Holiday,School Break,TRUE
+30-09-2022,GB,School Holiday,School Break,TRUE
+07-10-2022,DE,School Holiday,School Break,TRUE
+19-11-2022,ES,School Holiday,School Break,TRUE
