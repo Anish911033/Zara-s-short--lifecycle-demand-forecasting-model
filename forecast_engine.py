@@ -21,6 +21,38 @@ SIZES = ["XS", "S", "M", "L", "XL"]
 HORIZON = 4  # weeks ahead
 
 
+_FORMATS = ["%Y-%m-%d", "%d-%m-%Y", "%d/%m/%Y", "%Y/%m/%d", "%d.%m.%Y", "%m/%d/%Y"]
+
+
+def to_date(col):
+    """Parse a date column that may be ISO, dd-mm-yyyy, dd/mm/yyyy... (e.g. after an Excel re-save).
+
+    Each value is tried against the formats in order. Day-first is preferred over month-first
+    for ambiguous values, because the source files are European.
+    """
+    s = col.astype(str).str.strip().str.slice(0, 10)  # drop any time part
+    out = pd.Series(pd.NaT, index=s.index, dtype="datetime64[ns]")
+    for fmt in _FORMATS:
+        todo = out.isna()
+        if not todo.any():
+            break
+        out[todo] = pd.to_datetime(s[todo], format=fmt, errors="coerce")
+    if out.isna().any():
+        bad = s[out.isna()].unique()[:5].tolist()
+        raise ValueError(f"Could not read these dates in column {col.name!r}: {bad}")
+    return out
+
+
+def _read(name, date_cols=()):
+    df = pd.read_csv(DATA / name)
+    df.columns = df.columns.str.strip()
+    for c in df.select_dtypes("object"):
+        df[c] = df[c].str.strip()
+    for c in date_cols:
+        df[c] = to_date(df[c])
+    return df
+
+
 def blend(own_avg, weeks_seen, prior):
     """Mix the style's own average with the typical-style prior."""
     trust = weeks_seen / (weeks_seen + K)
@@ -28,9 +60,12 @@ def blend(own_avg, weeks_seen, prior):
 
 
 def _load_weekly():
-    sales = pd.read_csv(DATA / "weekly_sales.csv", parse_dates=["week_start_date"])
-    life = pd.read_csv(DATA / "product_lifecycle.csv", parse_dates=["launch_date", "planned_delist_date"])
-    stores = pd.read_csv(DATA / "store_master.csv")
+    sales = _read("weekly_sales.csv", ["week_start_date"])
+    life = _read("product_lifecycle.csv", ["launch_date", "planned_delist_date"])
+    stores = _read("store_master.csv")
+    for c in ["units_sold", "stock_level"]:
+        sales[c] = pd.to_numeric(sales[c], errors="coerce")
+    sales = sales.dropna(subset=["units_sold", "stock_level"])
 
     # cleaning, same as the notebook
     mon = sales.week_start_date.dt.dayofweek == 0
@@ -92,4 +127,5 @@ class Engine:
                             values="forecast_units", aggfunc="sum")[SIZES]
         piv["TOTAL"] = piv.sum(axis=1)
         return piv.reset_index()
+
 
