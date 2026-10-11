@@ -7,7 +7,15 @@ installs fast and fits on a small server.
 from pathlib import Path
 import pandas as pd
 
-DATA = Path(__file__).parent / "data"
+HERE = Path(__file__).parent
+# accept the CSVs in data/ or next to the code, so a flat repo upload still works
+DATA = HERE / "data" if (HERE / "data" / "weekly_sales.csv").exists() else HERE
+REQUIRED = ["weekly_sales.csv", "product_lifecycle.csv", "store_master.csv", "external_calendar.csv"]
+_missing = [f for f in REQUIRED if not (DATA / f).exists()]
+if _missing:
+    raise FileNotFoundError(
+        f"Missing {_missing}. Looked in {HERE / 'data'} and {HERE}. "
+        f"Files found there: {sorted(x.name for x in HERE.iterdir())}")
 K = 0.45  # trust constant from the notebook: trust = weeks_seen / (weeks_seen + K)
 SIZES = ["XS", "S", "M", "L", "XL"]
 HORIZON = 4  # weeks ahead
@@ -84,3 +92,4 @@ class Engine:
                             values="forecast_units", aggfunc="sum")[SIZES]
         piv["TOTAL"] = piv.sum(axis=1)
         return piv.reset_index()
+
